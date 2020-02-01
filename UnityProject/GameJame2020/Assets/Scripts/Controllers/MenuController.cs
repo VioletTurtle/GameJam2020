@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Level Select");
+        SceneManager.LoadScene("Level01");
     }
     public void Quit()
     {
