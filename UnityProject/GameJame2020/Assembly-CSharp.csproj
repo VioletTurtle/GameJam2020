@@ -55,9 +55,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Colliders\Collision.cs" />
-     <Compile Include="Assets\Scripts\Colliders\HazardsScript.cs" />
-     <Compile Include="Assets\Scripts\Colliders\PartsScript.cs" />
      <Compile Include="Assets\Scripts\Controllers\KeyBindsManager.cs" />
      <Compile Include="Assets\Scripts\Controllers\LevelSelectBackManager.cs" />
      <Compile Include="Assets\Scripts\Controllers\MenuController.cs" />
