@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: dde17a22353b36044bc684e699d295dc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Radio Space Bitmap
+  fontNames:
+  - Radio Space Bitmap
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 78ea586e00b51084e8d8651692e79bab, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
