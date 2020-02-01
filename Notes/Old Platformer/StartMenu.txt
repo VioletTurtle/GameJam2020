@@ -1,0 +1,12 @@
+Same Music manager as levels:
+Background: Background of the menu
+StartScreen:Start animation
+	Children:
+	Menu Canvas: MenuController.cs
+	Play, Options, Quit
+	
+	Options Canvas: Audio, VolumeSlider, Back/Quit
+	Could also have KeyBindings Scripts/Canvas!
+	VolumeSlider connected to MusicManager.cs
+
+LevelSelectBackManager.cs

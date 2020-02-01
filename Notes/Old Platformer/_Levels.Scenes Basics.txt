@@ -1,0 +1,47 @@
+Camera: Uses cinamachine.
+
+EventSystem Object (Needed in ALL scenes) See pic for set up.
+
+MusicManager.cs:
+create new object to hold with audio Source.
+Listener should have a clip.
+
+Player:
+has PlayerController.cs (Edit for only one charcter)
+2D rigidbody, and two colliders for boxes.
+	Child of Player:
+	Player-idle, has a sprite renderer and animator.
+	Holdes the animations on the player.
+	
+	Player Top: Marks the top of the player
+	Player Bottom: Marks the bottom
+
+Enemies:
+An Enemy object has the EnemyMovment.cs and EnemyHelth.cs
+2D rigidbody and colliders.
+
+	Enemy Children:
+	Animation Object: Starts with Idle or walking (Same as player)
+	
+	Cliff Edge Trigger: Box Collider and EnemyMovmentCliffEdgeTriger.cs
+	Wall Trigger: Polygon collider and EnemyMovmentWallTrigger.cs
+
+Player Start Location Object
+
+Enviornemt: Containes the gide of the level(Foreground, Midground, Background)
+This also holds the colliders of the level(Should be in foreground, Where the player runs)
+
+
+KIll Zone:
+Containes the KillZone.cs one for each object (5 total killzone objects)
+	Child: Top, Bottom, Left, Right
+
+KeyBind Game Manager: for ALL scenes, has the KeyBindsManager.cs
+KeyBind Canvas: mostly for start menu, has the KB_MenuScript.cs keyed to HUD
+Diffrent Buttons = Diffrent Movments, Look at pic
+
+HUD: Contains Display of Health, Level, and Score. (HUDController.cs Change for game)
+
+DeathCanvas: Activates if player health = 0
+
+OptionsCanvas: Pause Menu

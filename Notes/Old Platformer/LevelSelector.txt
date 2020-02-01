@@ -1,0 +1,5 @@
+Contains StaticPlayerController.cs (Possably Unneeded if only 1 Character)
+StaticLevelController.cs (Can't go to the next level withot finishing the previous)
+LevelSelectController.cs
+LevelsCanvas:
+Contains Each level and a creator unlock. See Pic

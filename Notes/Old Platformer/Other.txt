@@ -1,0 +1,2 @@
+Create a Seprate Win Script.
+If there is a Boss, add it to that script.
