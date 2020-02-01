@@ -1,0 +1,7 @@
+1. Colitions (Parts and big OX Tank)
+2. add hazards and Ox tanks
+3. implimentation to level - camera-add music
+4. End Scenes/scripts
+5. add mid ground assets
+6. backgrounds
+7. Any bugs fixed
