@@ -8,24 +8,25 @@ public class PartsScript : MonoBehaviour
     bool addsTime = true;
     bool isPickupable = true;
     public float addedTime = 0f;
-    public string object_;
+    PartsController part;
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+    void Start()
+    {
+        part = GameObject.FindGameObjectWithTag("GameController").GetComponent<PartsController>();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (isVisible)
         {
-            if (collision.gameObject.CompareTag(object_))
+            if (other.gameObject.CompareTag("Player"))
             {
-                AddTime();
-                PartsController part = GameObject.FindGameObjectWithTag("GameController").GetComponent<PartsController>();
+                Debug.Log("Enter Box");
                 part.pickedUp = true;
             }
         }
     }
 
-    void AddTime()
-    {
-        TimerController time = GameObject.Find("Game").GetComponent<TimerController>();
-        time.gameTime += addedTime;
-    }
+   
 }

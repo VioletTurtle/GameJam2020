@@ -7,18 +7,18 @@ public class MachineManager : MonoBehaviour
     PartsController parts;
     int score = 0;
     public bool playerDetected = false;
-    private void Start()
+    void Start()
     {
         parts = GameObject.FindGameObjectWithTag("GameController").GetComponent<PartsController>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if(parts.hold == 1)
+            if (parts.hold == 1)
             {
+                Debug.Log("Player Detected");
                 playerDetected = true;
-                parts.hold = 0;
             }
         }
     }

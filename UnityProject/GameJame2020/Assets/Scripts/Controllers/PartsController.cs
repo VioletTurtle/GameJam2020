@@ -15,12 +15,7 @@ public class PartsController : MonoBehaviour
 
     void Start()
     {
-        mm = GetComponent<MachineManager>();
-        parts1 = GameObject.FindWithTag("Item1");
-        parts2 = GameObject.FindWithTag("Item2");
-        parts3 = GameObject.FindWithTag("Item3");
-        parts4 = GameObject.FindWithTag("Item4");
-        parts5 = GameObject.FindWithTag("Item5");
+        mm = machine.GetComponent<MachineManager>();
 
         ps1 = parts1.GetComponent<PartsScript>();
         ps2 = parts2.GetComponent<PartsScript>();
@@ -29,6 +24,7 @@ public class PartsController : MonoBehaviour
         ps5 = parts5.GetComponent<PartsScript>();
 
         ps1.isVisible = true;
+        parts1.SetActive(true);
     }
 
     void FixedUpdate()
@@ -39,16 +35,20 @@ public class PartsController : MonoBehaviour
             if(pickedUp)
             {
                 ps1.isVisible = false;
+                parts1.SetActive(false);
                 hold = 1;
             }
         }
-        else if(pickedUp == true)
+        if(hold == 1)
         {
-            if(mm.playerDetected)
+            Debug.Log("yo");
+            if (mm.playerDetected)
             {
                 ps2.isVisible = true;
+                parts2.SetActive(true);
                 pickedUp = false;
                 score += 1;
+                hold = 0;
             }
 
         }
@@ -59,16 +59,19 @@ public class PartsController : MonoBehaviour
             if (pickedUp)
             {
                 ps2.isVisible = false;
+                parts2.SetActive(false);
                 hold = 1;
             }
         }
-        else if (pickedUp == true)
+        if (hold == 1)
         {
             if (mm.playerDetected)
             {
                 ps3.isVisible = true;
+                parts3.SetActive(true);
                 pickedUp = false;
                 score += 1;
+                hold = 0;
             }
         }
 
@@ -78,16 +81,19 @@ public class PartsController : MonoBehaviour
             if (pickedUp)
             {
                 ps3.isVisible = false;
+                parts3.SetActive(false);
                 hold = 1;
             }
         }
-        else if (pickedUp == true)
+        if (hold == 1)
         {
             if (mm.playerDetected)
             {
                 ps4.isVisible = true;
+                parts4.SetActive(true);
                 pickedUp = false;
                 score += 1;
+                hold = 0;
             }
         }
 
@@ -97,16 +103,19 @@ public class PartsController : MonoBehaviour
             if (pickedUp)
             {
                 ps4.isVisible = false;
+                parts4.SetActive(false);
                 hold = 1;
             }
         }
-        else if (pickedUp == true)
+        if (hold == 1)
         {
             if (mm.playerDetected)
             {
                 ps5.isVisible = true;
+                parts5.SetActive(true);
                 pickedUp = false;
                 score += 1;
+                hold = 0;
             }
         }
 
@@ -116,15 +125,17 @@ public class PartsController : MonoBehaviour
             if (pickedUp)
             {
                 ps5.isVisible = false;
+                parts5.SetActive(false);
                 hold = 1;
             }
         }
-        else if (pickedUp == true)
+        if (hold == 1)
         {
             if (mm.playerDetected)
             {
                 pickedUp = false;
                 score += 1;
+                hold = 0;
                 win = true;
             }
         }
