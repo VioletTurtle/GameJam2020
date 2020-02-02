@@ -217,13 +217,31 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
+  - m_RefCount: 0
+    m_Data:
+      e00: NaN
+      e01: NaN
+      e02: -0.0012101373
+      e03: 1.02e-43
+      e10: NaN
+      e11: NaN
+      e12: 4.5908e-41
+      e13: 3.24e-43
+      e20: 0.06925869
+      e21: -0.0012101363
+      e22: 0
+      e23: 0
+      e30: 8.91e-43
+      e31: 4.5908e-41
+      e32: NaN
+      e33: 0
   m_TileColorArray:
   - m_RefCount: 8
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -1, y: -2, z: 0}
-  m_Size: {x: 3, y: 3, z: 1}
+  m_Size: {x: 3, y: 5, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
