@@ -49,7 +49,6 @@ public class TimerController : MonoBehaviour
             if (playing)
             {
                 gameTime = Time.time - startPoint;
-
                 timerText.text = (MaxTime - gameTime).ToString("000");
             }
 
@@ -58,7 +57,7 @@ public class TimerController : MonoBehaviour
             {
                 playing = false;
                 timerText.text = 0.ToString("000");
-                //End Death
+                SceneManager.LoadScene("Death");
             }
         }
 	}
