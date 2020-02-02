@@ -6,7 +6,6 @@ public class MachineManager : MonoBehaviour
 {
     PartsController parts;
     int score = 0;
-    public bool playerDetected = false;
     void Start()
     {
         parts = GameObject.FindGameObjectWithTag("GameController").GetComponent<PartsController>();
@@ -18,7 +17,7 @@ public class MachineManager : MonoBehaviour
             if (parts.hold == 1)
             {
                 Debug.Log("Player Detected");
-                playerDetected = true;
+                parts.playerDetected = true;
             }
         }
     }

@@ -18,6 +18,8 @@ public class PartsController : MonoBehaviour
     int score = 0;
     bool win = false;
 
+    public bool playerDetected = false;
+
     public GameObject timeController;
     TimerController tc;
     public float addTime = 0f;
@@ -61,7 +63,7 @@ public class PartsController : MonoBehaviour
         if(hold == 1)
         {
             Debug.Log("yo");
-            if (mm.playerDetected)
+            if (playerDetected == true)
             {
                 ps2.isVisible = true;
                 map2.SetActive(true);
@@ -72,6 +74,7 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                playerDetected = false;
             }
 
         }
@@ -91,7 +94,7 @@ public class PartsController : MonoBehaviour
         }
         if (hold == 1)
         {
-            if (mm.playerDetected)
+            if (playerDetected == true)
             {
                 ps3.isVisible = true;
                 map3.SetActive(true);
@@ -102,6 +105,7 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                playerDetected = false;
             }
         }
 
@@ -120,7 +124,7 @@ public class PartsController : MonoBehaviour
         }
         if (hold == 1)
         {
-            if (mm.playerDetected)
+            if (playerDetected == true)
             {
                 ps4.isVisible = true;
                 map4.SetActive(true);
@@ -131,6 +135,7 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                playerDetected = false;
             }
         }
 
@@ -149,7 +154,7 @@ public class PartsController : MonoBehaviour
         }
         if (hold == 1)
         {
-            if (mm.playerDetected)
+            if (playerDetected == true)
             {
                 ps5.isVisible = true;
                 parts5.SetActive(true);
@@ -160,6 +165,8 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                playerDetected = false;
+
             }
         }
 
@@ -178,7 +185,7 @@ public class PartsController : MonoBehaviour
         }
         if (hold == 1)
         {
-            if (mm.playerDetected)
+            if (playerDetected == true)
             {
                 pickedUp = false;
                 PC5.SetActive(false);
