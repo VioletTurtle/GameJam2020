@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class OxygenTankManager : MonoBehaviour
 {
-    bool isVisible = true;
-    bool addsTime = true;
-    bool isPickupable = true;
+    public float addTime = 0f;
+    public GameObject timeController;
+    TimerController tc;
+
+    void Start()
+    {
+        tc = timeController.GetComponent<TimerController>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(isVisible)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if(collision.gameObject)
-            {
-
-            }
+            Debug.Log("Hit");
+            this.gameObject.SetActive(false);
+            AddTime();
         }
+    }
+
+    void AddTime()
+    {
+        tc.startPoint += addTime;
     }
 }

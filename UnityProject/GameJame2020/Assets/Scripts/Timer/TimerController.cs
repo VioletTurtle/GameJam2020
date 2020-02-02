@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class TimerController : MonoBehaviour
 {
     public Text timerText;
-    [SerializeField] public float gameTime = 180f;
+    public float now;
+    [SerializeField] public float gameTime = 0f;
     [SerializeField] private float MaxTime = 180f;
     [SerializeField] private float startCountDown = 5f;
-    private float startPoint;
+    public float startPoint;
     private bool playing;
     private bool started;
 
@@ -27,13 +28,12 @@ public class TimerController : MonoBehaviour
 	// Update is called once per frame
 	private void Update ()
     {
-        float now = float.NegativeInfinity;
 
         if (!started)
         {
-            now = Time.realtimeSinceStartup - startPoint;
+            gameTime = Time.realtimeSinceStartup - startPoint;
 
-            if (now > startCountDown)
+            if (gameTime > startCountDown)
             {
                 started = true;
                 Time.timeScale = 1f;
@@ -41,20 +41,20 @@ public class TimerController : MonoBehaviour
             }
             else
             {
-                timerText.text = (startCountDown - now).ToString("000");
+                timerText.text = (startCountDown).ToString("000");
             }
         }
         else
         {
             if (playing)
             {
-                now = Time.time - startPoint;
+                gameTime = Time.time - startPoint;
 
-                timerText.text = (gameTime - now).ToString("000");
+                timerText.text = (MaxTime - gameTime).ToString("000");
             }
 
 
-            if (!playing || now >= gameTime)
+            if (!playing || gameTime >= MaxTime)
             {
                 playing = false;
                 timerText.text = 0.ToString("000");

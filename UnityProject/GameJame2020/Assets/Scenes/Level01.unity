@@ -6581,9 +6581,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 972613732}
+  now: 0
   gameTime: 180
   MaxTime: 180
   startCountDown: 5
+  startPoint: 0
 --- !u!114 &2063812130
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class HazardsScript : MonoBehaviour
 {
-    bool isVisible = true;
-    bool addsTime = false;
-    bool isPickupable = false;
-    public string object_;
-
     public float subTime = 0f;
+    public GameObject timeController;
+    TimerController tc;
+
+    void Start()
+    {
+        tc = timeController.GetComponent<TimerController>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isVisible)
-        {
-            if (collision.gameObject.CompareTag(object_))
-            {
-                SubtractTime();
-                // Put player in temporary invincibility
-            }
-        }
+       if (collision.gameObject.CompareTag("Player"))
+       {
+            Debug.Log("Hit");
+           SubtractTime();
+           // Put player in temporary invincibility
+       }
     }
 
     void SubtractTime()
     {
-        TimerController time = GameObject.Find("Game").GetComponent<TimerController>();
-        time.gameTime -= subTime;
+        tc.startPoint -= subTime;
     }
 }
