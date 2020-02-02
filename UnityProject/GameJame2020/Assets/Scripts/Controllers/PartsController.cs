@@ -72,6 +72,7 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                mm.playerDetected = false;
             }
 
         }
@@ -102,6 +103,7 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                mm.playerDetected = false;
             }
         }
 
@@ -131,6 +133,7 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                mm.playerDetected = false;
             }
         }
 
@@ -160,6 +163,8 @@ public class PartsController : MonoBehaviour
                 tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
+                mm.playerDetected = false;
+
             }
         }
 
