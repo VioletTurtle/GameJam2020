@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimerController : MonoBehaviour
 {
     private Text timerText;
-    [SerializeField] private float gameTime = 60f;
+    [SerializeField] public float gameTime = 60f;
     [SerializeField] private float startCountDown = 5f;
     private float startPoint;
     [SerializeField] private ScoreController score;

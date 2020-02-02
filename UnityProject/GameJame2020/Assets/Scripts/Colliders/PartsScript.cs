@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PartsScript : Collision
+public class PartsScript : MonoBehaviour
 {
-    bool isVisible = true;
+    public bool isVisible = false;
     bool addsTime = true;
     bool isPickupable = true;
+    public float addedTime = 0f;
+    public string object_;
 
-    private override void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (isVisible)
         {
             if (collision.gameObject.CompareTag(object_))
             {
                 AddTime();
-                // Remove from parts array
-                // Destroy object
+                PartsController part = GameObject.FindGameObjectWithTag("GameController").GetComponent<PartsController>();
+                part.pickedUp = true;
             }
         }
     }
 
     void AddTime()
     {
-        // Add time to timer
+        TimerController time = GameObject.Find("Game").GetComponent<TimerController>();
+        time.gameTime += addedTime;
     }
 }

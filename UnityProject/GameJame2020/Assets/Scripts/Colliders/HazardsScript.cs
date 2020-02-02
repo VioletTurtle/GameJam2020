@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HazardsScript : Collision
+public class HazardsScript : MonoBehaviour
 {
     bool isVisible = true;
     bool addsTime = false;
     bool isPickupable = false;
+    public string object_;
 
-    private override void OnTriggerEnter2D(Collider2D collision)
+    public float subTime = 0f;
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (isVisible)
         {
@@ -22,6 +25,7 @@ public class HazardsScript : Collision
 
     void SubtractTime()
     {
-        // Subtract time to timer
+        TimerController time = GameObject.Find("Game").GetComponent<TimerController>();
+        time.gameTime -= subTime;
     }
 }
