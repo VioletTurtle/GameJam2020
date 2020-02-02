@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
-    private Text timerText;
-    [SerializeField] public float gameTime = 60f;
+    public Text timerText;
+    [SerializeField] public float gameTime = 180f;
+    [SerializeField] private float MaxTime = 180f;
     [SerializeField] private float startCountDown = 5f;
     private float startPoint;
-    [SerializeField] private ScoreController score;
     private bool playing;
     private bool started;
 
@@ -20,8 +20,7 @@ public class TimerController : MonoBehaviour
         Time.timeScale = 1f;
         started = false;
         playing = true;
-        timerText = GetComponentInChildren<Text>();
-		timerText.text = "60";
+		timerText.text = "180";
         startPoint = Time.realtimeSinceStartup;
     }
 	
@@ -39,17 +38,10 @@ public class TimerController : MonoBehaviour
                 started = true;
                 Time.timeScale = 1f;
                 startPoint = Time.time;
-
-
-                // here is where u can add stuff to start the game
-                // uwu
-
-
-
             }
             else
             {
-                //timerText.text = (startCountDown - now).ToString("0.00");
+                timerText.text = (startCountDown - now).ToString("000");
             }
         }
         else
@@ -58,20 +50,15 @@ public class TimerController : MonoBehaviour
             {
                 now = Time.time - startPoint;
 
-                timerText.text = (gameTime - now).ToString("00.00");
+                timerText.text = (gameTime - now).ToString("000");
             }
 
 
             if (!playing || now >= gameTime)
             {
                 playing = false;
-                timerText.text = 0.ToString("00.00");
-                //score.Winner();
-                if (Input.anyKeyDown)
-                {
-                    //Debug.Log("uwu");
-                    SceneManager.LoadScene("StarMenu");
-                }
+                timerText.text = 0.ToString("000");
+                //End Death
             }
         }
 	}

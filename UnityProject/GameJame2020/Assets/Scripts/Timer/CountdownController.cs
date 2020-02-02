@@ -6,17 +6,14 @@ using UnityEngine.AI;
 
 public class CountdownController : MonoBehaviour {
 
-	private Text CountdownText;
+	public Text CountdownText;
 	float TimePassed = 0f;
-	public NavMeshAgent navAgentPlayerRed;
-	public NavMeshAgent navAgentPlayerBlue;
+	public GameObject AgentPlayer;
 
 	// Use this for initialization
 	void Start () {
-		CountdownText = gameObject.GetComponent<Text> ();
 
-		navAgentPlayerRed.enabled = false;
-		navAgentPlayerBlue.enabled = false;
+		AgentPlayer.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -32,8 +29,7 @@ public class CountdownController : MonoBehaviour {
 			CountdownText.text = "GO!";
 			CountdownText.color = new Color (0f,1f,0f,1f);
 			//Let players move
-			navAgentPlayerRed.enabled = true;
-			navAgentPlayerBlue.enabled = true;
+			AgentPlayer.SetActive(true);
 		}
 		else if (TimePassed >= 4f)
 		{
