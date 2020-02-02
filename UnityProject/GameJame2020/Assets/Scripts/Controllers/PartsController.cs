@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class PartsController : MonoBehaviour
 {
     public GameObject parts1, parts2, parts3, parts4, parts5;
-    public GameObject map1, map2, map3, map4, map5;
+    public GameObject map1, map2, map3, map4, map5, mapMM;
+    public GameObject PC1, PC2, PC3, PC4, PC5;
     public GameObject machine;
     public Animator animate;
     MachineManager mm;
@@ -14,6 +17,10 @@ public class PartsController : MonoBehaviour
     public int hold = 0;
     int score = 0;
     bool win = false;
+
+    public GameObject timeController;
+    TimerController tc;
+    public float addTime = 0f;
 
     void Start()
     {
@@ -25,9 +32,15 @@ public class PartsController : MonoBehaviour
         ps4 = parts4.GetComponent<PartsScript>();
         ps5 = parts5.GetComponent<PartsScript>();
 
+        tc = timeController.GetComponent<TimerController>();
+
         ps1.isVisible = true;
         parts1.SetActive(true);
         map1.SetActive(true);
+        parts2.SetActive(false);
+        parts3.SetActive(false);
+        parts4.SetActive(false);
+        parts5.SetActive(false);
     }
 
     void FixedUpdate()
@@ -38,6 +51,9 @@ public class PartsController : MonoBehaviour
             if(pickedUp)
             {
                 ps1.isVisible = false;
+                map1.SetActive(false);
+                PC1.SetActive(true);
+                mapMM.SetActive(true);
                 parts1.SetActive(false);
                 hold = 1;
             }
@@ -48,10 +64,12 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 ps2.isVisible = true;
-                map1.SetActive(false);
                 map2.SetActive(true);
+                mapMM.SetActive(false);
+                PC1.SetActive(false);
                 parts2.SetActive(true);
                 pickedUp = false;
+                tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
             }
@@ -65,6 +83,9 @@ public class PartsController : MonoBehaviour
             {
                 ps2.isVisible = false;
                 parts2.SetActive(false);
+                PC2.SetActive(true);
+                map2.SetActive(false);
+                mapMM.SetActive(true);
                 hold = 1;
             }
         }
@@ -73,10 +94,12 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 ps3.isVisible = true;
-                map2.SetActive(false);
                 map3.SetActive(true);
+                PC2.SetActive(false);
+                mapMM.SetActive(false);
                 parts3.SetActive(true);
                 pickedUp = false;
+                tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
             }
@@ -89,6 +112,9 @@ public class PartsController : MonoBehaviour
             {
                 ps3.isVisible = false;
                 parts3.SetActive(false);
+                PC3.SetActive(true);
+                map2.SetActive(false);
+                mapMM.SetActive(true);
                 hold = 1;
             }
         }
@@ -97,10 +123,12 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 ps4.isVisible = true;
-                map3.SetActive(false);
                 map4.SetActive(true);
+                PC3.SetActive(false);
+                mapMM.SetActive(false);
                 parts4.SetActive(true);
                 pickedUp = false;
+                tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
             }
@@ -112,6 +140,9 @@ public class PartsController : MonoBehaviour
             if (pickedUp)
             {
                 ps4.isVisible = false;
+                map2.SetActive(false);
+                PC4.SetActive(true);
+                mapMM.SetActive(true);
                 parts4.SetActive(false);
                 hold = 1;
             }
@@ -122,9 +153,11 @@ public class PartsController : MonoBehaviour
             {
                 ps5.isVisible = true;
                 parts5.SetActive(true);
-                map4.SetActive(false);
+                PC4.SetActive(false);
                 map5.SetActive(true);
+                mapMM.SetActive(false);
                 pickedUp = false;
+                tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
             }
@@ -136,6 +169,9 @@ public class PartsController : MonoBehaviour
             if (pickedUp)
             {
                 ps5.isVisible = false;
+                map5.SetActive(false);
+                PC5.SetActive(true);
+                mapMM.SetActive(true);
                 parts5.SetActive(false);
                 hold = 1;
             }
@@ -145,11 +181,18 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 pickedUp = false;
+                PC5.SetActive(false);
+                tc.startPoint += addTime;
                 score += 1;
                 hold = 0;
                 win = true;
                 animate.SetBool("isWin",true);
             }
+        }
+        if(win == true)
+        {
+            animate.SetBool("isWin", true);
+            SceneManager.LoadScene("Win");
         }
     }
 }

@@ -10,7 +10,8 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private AudioClip Menu;
     [SerializeField] private AudioClip Level1;
     [SerializeField] private AudioClip Win;
-    private Slider volumeSlider;
+    [SerializeField] private AudioClip Death;
+    public Slider volumeSlider;
     private Button muteButton;
     private Text muteButtonText;
 
@@ -107,8 +108,7 @@ public class MusicManager : MonoBehaviour
             PlayerPrefs.SetInt("Mute", 0);
         }
 
-        if (scene.name == "Start Menu" ||
-            scene.name == "Level 1")
+        if (scene.name == "Start Menu")
         {
             volumeSlider = GameObject.FindGameObjectWithTag("Volume Slider").GetComponent<Slider>();
             volumeSlider.value = PlayerPrefs.GetFloat("Volume") * volumeSlider.maxValue;
@@ -143,6 +143,11 @@ public class MusicManager : MonoBehaviour
             else if (scene.name == "Win")
             {
                 MusicPlayer.clip = Win;
+                MusicPlayer.Play();
+            }
+            else if (scene.name == "Death")
+            {
+                MusicPlayer.clip = Death;
                 MusicPlayer.Play();
             }
             previousSceneName = scene.name;
