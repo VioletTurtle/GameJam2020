@@ -734,9 +734,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
+  now: 0
   gameTime: 60
   MaxTime: 180
   startCountDown: 5
+  startPoint: 0
 --- !u!4 &2140380192
 Transform:
   m_ObjectHideFlags: 0
@@ -768,6 +770,11 @@ MonoBehaviour:
   parts3: {fileID: 1102840728}
   parts4: {fileID: 2076112654}
   parts5: {fileID: 1260887193}
+  map1: {fileID: 0}
+  map2: {fileID: 0}
+  map3: {fileID: 0}
+  map4: {fileID: 0}
+  map5: {fileID: 0}
   machine: {fileID: 2005588048}
   pickedUp: 0
   hold: 0
@@ -947,7 +954,7 @@ PrefabInstance:
     - target: {fileID: 295784457894603437, guid: 13407edb04b63444bbf0c288a5f32926,
         type: 3}
       propertyPath: m_Name
-      value: Item
+      value: Part1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13407edb04b63444bbf0c288a5f32926, type: 3}
@@ -1016,7 +1023,7 @@ PrefabInstance:
     - target: {fileID: 930085700224517630, guid: 90ddd17deb9858147b89a4dec2b9c8e4,
         type: 3}
       propertyPath: m_Name
-      value: Item (1)
+      value: Part2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ddd17deb9858147b89a4dec2b9c8e4, type: 3}
@@ -1085,7 +1092,7 @@ PrefabInstance:
     - target: {fileID: 1034606233456004933, guid: 9a01cff3984e36a42bea75aff5efac5c,
         type: 3}
       propertyPath: m_Name
-      value: Item (3)
+      value: Part4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a01cff3984e36a42bea75aff5efac5c, type: 3}
@@ -1154,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 2931089058568733746, guid: 90ae603a60371bf448be5dcd2d3f56d0,
         type: 3}
       propertyPath: m_Name
-      value: Item (4)
+      value: Part5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90ae603a60371bf448be5dcd2d3f56d0, type: 3}
@@ -1242,7 +1249,7 @@ PrefabInstance:
     - target: {fileID: 6396693153385219760, guid: 187425c15d5ddf04b8205778bfeadfb7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6396693153385219760, guid: 187425c15d5ddf04b8205778bfeadfb7,
         type: 3}
@@ -1306,7 +1313,7 @@ PrefabInstance:
     - target: {fileID: 7364987767571371602, guid: ee91463a51785a844b8d30e6948f43e8,
         type: 3}
       propertyPath: m_Name
-      value: Item (2)
+      value: Part3
       objectReference: {fileID: 0}
     - target: {fileID: 7364987767571371603, guid: ee91463a51785a844b8d30e6948f43e8,
         type: 3}

@@ -5,7 +5,9 @@ using UnityEngine;
 public class PartsController : MonoBehaviour
 {
     public GameObject parts1, parts2, parts3, parts4, parts5;
+    public GameObject map1, map2, map3, map4, map5;
     public GameObject machine;
+    public Animator animate;
     MachineManager mm;
     PartsScript ps1, ps2, ps3, ps4, ps5;
     public bool pickedUp = false;
@@ -25,6 +27,7 @@ public class PartsController : MonoBehaviour
 
         ps1.isVisible = true;
         parts1.SetActive(true);
+        map1.SetActive(true);
     }
 
     void FixedUpdate()
@@ -45,6 +48,8 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 ps2.isVisible = true;
+                map1.SetActive(false);
+                map2.SetActive(true);
                 parts2.SetActive(true);
                 pickedUp = false;
                 score += 1;
@@ -68,6 +73,8 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 ps3.isVisible = true;
+                map2.SetActive(false);
+                map3.SetActive(true);
                 parts3.SetActive(true);
                 pickedUp = false;
                 score += 1;
@@ -90,6 +97,8 @@ public class PartsController : MonoBehaviour
             if (mm.playerDetected)
             {
                 ps4.isVisible = true;
+                map3.SetActive(false);
+                map4.SetActive(true);
                 parts4.SetActive(true);
                 pickedUp = false;
                 score += 1;
@@ -113,6 +122,8 @@ public class PartsController : MonoBehaviour
             {
                 ps5.isVisible = true;
                 parts5.SetActive(true);
+                map4.SetActive(false);
+                map5.SetActive(true);
                 pickedUp = false;
                 score += 1;
                 hold = 0;
@@ -137,6 +148,7 @@ public class PartsController : MonoBehaviour
                 score += 1;
                 hold = 0;
                 win = true;
+                animate.SetBool("isWin",true);
             }
         }
     }
