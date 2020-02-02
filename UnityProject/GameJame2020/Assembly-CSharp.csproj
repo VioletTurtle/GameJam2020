@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Player\Invincibility.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\PressButton.cs" />
      <Compile Include="Assets\Scripts\ScoreController.cs" />
      <Compile Include="Assets\Scripts\Timer\CountdownController.cs" />
      <Compile Include="Assets\Scripts\Timer\TimerController.cs" />

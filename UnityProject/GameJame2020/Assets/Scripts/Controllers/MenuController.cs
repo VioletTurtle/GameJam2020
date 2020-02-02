@@ -15,4 +15,8 @@ public class MenuController : MonoBehaviour
     {
         Application.Quit();
     }
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }
